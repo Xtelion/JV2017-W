@@ -78,11 +78,8 @@ public class SesionUsuario implements Serializable {
 	 * @return true si cumple.
 	 */
 	private boolean fechaSesionValida(Fecha fecha) {
-		if (fecha != null
-				&& fechaSesionCoherente(fecha)) {
-			return true;
-		}
-		return false;
+		assert fecha != null;
+		return fechaSesionCoherente(fecha);
 	}
 
 	/**
@@ -160,7 +157,9 @@ public class SesionUsuario implements Serializable {
 	@Override
 	public Object clone() {
 		// Utiliza el constructor copia.
-		return new SesionUsuario(this);
+		Object clon = null;
+		clon = new SesionUsuario(this);
+		return clon;
 	}
 
 
